@@ -42,13 +42,11 @@ function global_start()
 		$templatelist = '';
 	}
 
-	$templatelist .= ',ougcmediainfotag';
-
 	if(defined('THIS_SCRIPT'))
 	{
-		if(THIS_SCRIPT == 'newpoints.php')
+		if(THIS_SCRIPT == 'showthread.php' || THIS_SCRIPT == 'editpost.php' || THIS_SCRIPT == 'newthread.php' || THIS_SCRIPT == 'newreply.php' || THIS_SCRIPT == 'portal.php')
 		{
-			$templatelist .= ',';
+			$templatelist .= ',ougcmediainfotag,ougcmediainfotag_general, ougcmediainfotag_video, ougcmediainfotag_audio, ougcmediainfotag_text_language, ougcmediainfotag_text';
 		}
 	}
 }
@@ -183,6 +181,8 @@ function parse_message(&$message)
 				{
 					if($type == 'text')
 					{
+						$uniqid = uniqid($post['pid']);
+
 						$language = htmlspecialchars_uni(ucfirst($value['language']));
 
 						$format = htmlspecialchars_uni(my_strtoupper($value['format']));

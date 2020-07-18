@@ -1,3 +1,11 @@
 <td class="trow1" width="25%" valign="top">
-	{$languages}
+	<div class="spoiler">
+		<div>
+			<input type="button" value="{$lang->ougc_media_info_tag_show}" class="button" onclick="return spoiler{$uniqid}(event); return false;" />
+		</div>
+		<div style="display: none;" class="spoiler_content">
+			{$languages}
+		</div>
+	</div>
+	<script>function spoiler{$uniqid}(e) { e = e || window.event; var target = e.target || e.srcElement; $(target).val() == '{$lang->ougc_media_info_tag_show}' ? $(target).val('{$lang->ougc_media_info_tag_hide}') : $(target).val('{$lang->ougc_media_info_tag_show}'); $(target).parent('div').parent('div.spoiler').children('div.spoiler_content').toggle(); }</script>
 </td>

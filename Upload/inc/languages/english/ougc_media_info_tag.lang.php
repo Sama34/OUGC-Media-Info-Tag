@@ -58,4 +58,6 @@ $l = [
 	'ougc_media_info_tag_channels' => 'Audio channels',
 
 	'ougc_media_info_tag_nosubtitles' => 'There are no subtitles.',
+	'ougc_media_info_tag_show' => 'Show',
+	'ougc_media_info_tag_hide' => 'Hide',
 ];
