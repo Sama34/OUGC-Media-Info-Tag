@@ -103,7 +103,9 @@ function datahandler_post_validate_post(&$dh)
 
 	$parser = new \Bhutanio\MediaInfo\Parser;
 
-	foreach($matches[1] as $match)
+	$matches = (array)$matches[1];
+
+	foreach($matches as $match)
 	{
 		$info = \OUGCMediaInfoTag\Core\parse($match);
 
@@ -163,6 +165,8 @@ function parse_message(&$message)
 				return $match[0];
 			}
 
+			$info = (array)$info;
+
 			foreach($info as $type => $data)
 			{
 				if(!in_array($type, ['general', 'video', 'audio', 'text']))
@@ -176,6 +180,8 @@ function parse_message(&$message)
 				{
 					$data = [['language' => $lang->ougc_media_info_tag_nosubtitles, 'format' => '']];
 				}
+
+				$data = (array)$data;
 
 				foreach($data as $key => $value)
 				{
@@ -196,6 +202,8 @@ function parse_message(&$message)
 
 					if($type == 'video' || $type == 'audio')
 					{
+						$value = (array)$value;
+
 						foreach($value as $k => $v)
 						{
 							$ckey = $type.'_'.$k;
